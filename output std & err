@@ -1,0 +1,17 @@
+#write stdout to file
+command > output.txt
+
+#append stdout to file
+command >> output.txt
+
+#write stderr
+command 2> error.txt
+
+#append stderr
+command 2>> error.txt
+
+#write stdout and stderr
+command &> output.txt
+
+#append stdout and stderr
+command &>> output.txt
