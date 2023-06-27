@@ -1,0 +1,47 @@
+#create a user
+useradd <username>
+
+#after create a user, set password
+passwd <username>
+
+#delete a user(if is not root privileged user)
+userdel <username>
+
+#delete a user with his primary group, files, etc
+userdel -r <username>
+
+#see all users
+cat /etc/passwd
+
+#add a user to other normal group
+sudo usermod -aG second_example_group example_user 
+OR
+gpasswd -a group user
+
+#add a user to SUDO group
+usermod -aG sudo example_user
+
+#remove a user from a group 
+gpasswd -d group user
+
+#remove a group 
+groupdel group_name
+
+#give root access to a user
+vim /etc/passwd
+from test:x:1000:1000::/home/test:/bin/bash
+set to test:x:0:0::/home/test:/bin/bash
+(0 is the root UID(user id))
+
+#See user’s primary group
+id  example_user
+
+#see all groups
+cat /etc/group
+
+#change the group working for
+newgrp <othergroup>
+
+
+
+
