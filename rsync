@@ -1,0 +1,2 @@
+#remote to local with pass included
+rsync -a -e "sshpass -p 'pass inside quote' ssh" remote_user@ip:/remote/path /local/path
