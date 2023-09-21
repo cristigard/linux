@@ -3,3 +3,6 @@ env -i /bin/bash --noprofile --norc in the shell lets you have the same environm
 
 #to exit from this command
 exit + enter
+
+#if you need the log of cron use(file can be found in /home/user)
+* * * * * whatever >> filename 2>&1
