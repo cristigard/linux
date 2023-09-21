@@ -1,0 +1,2 @@
+#see the enviromment that cron execute command
+env -i /bin/bash --noprofile --norc in the shell lets you have the same environment as the one used by crontab, and this is super helpful to debug.
