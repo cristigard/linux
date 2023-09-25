@@ -1,0 +1,42 @@
+#add new servicee in systemd
+1. create a file watch_dog.service in /etc/systemd/system/
+2. add this in file
+
+[Unit]
+Description=Directory Watchdog Service
+After=network.target
+
+[Service]
+User=your_username
+Group=your_group
+WorkingDirectory=/path/to/your/script/directory
+ExecStart=/usr/bin/python3 /path/to/your/script.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+3. systectl enable watch_dog.service
+4. systectl start watch_dog.service
+5. systemctl daemon-reload
+
+6. if service not start: journalctl -u watch_dog.service -f
+
+[Unit]: This section contains metadata and directives related to the service unit.
+Description=Directory Watchdog Service: This line provides a description for the service, 
+which is a human-readable text that describes what the service does. In this case, it's named "Directory Watchdog Service."
+After=network.target: This line specifies a dependency for the service. It means that the service should start after the network.target unit, 
+ensuring that network services are initialized before your watchdog service starts.
+[Service]: This section contains configuration options related to how the service should be executed.
+User=your_username: Replace your_username with the name of the user under which the service should run. This setting determines the user account that will execute the watchdog script.
+Group=your_group: Replace your_group with the name of the user group to which the service should belong. This setting determines the group associated with the user account running the script.
+WorkingDirectory=/path/to/your/script/directory: This line specifies the working directory for the service. The watchdog script will be executed with this directory as its current working directory. 
+Replace /path/to/your/script/directory with the actual directory path where your watchdog script is located.
+ExecStart=/usr/bin/python3 /path/to/your/script.py: This line defines the command to start the service. 
+It specifies the full path to the Python 3 interpreter (/usr/bin/python3) followed by the full path to your watchdog script (/path/to/your/script.py). This command will execute your watchdog script using Python 3.
+Restart=always: This setting specifies how the service should behave when it exits or stops. 
+In this case, always means that the service should be automatically restarted by systemd whenever it stops, whether due to an error or any other reason.
+[Install]: This section specifies directives related to the installation and enabling of the service.
+WantedBy=multi-user.target: This line specifies the target that this service is wanted by. 
+In this case, it's multi-user.target, which is a system boot target. 
+It means that the service should be enabled and started when the system reaches the multi-user mode, typically after the system has finished booting
