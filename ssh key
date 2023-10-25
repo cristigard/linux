@@ -1,5 +1,7 @@
 #check if key exist
-cd /home/cristi/.ssh/ <- if no id_rsa/id_rds.pub then no ssh key was generated
+1. cd /home/cristi/.ssh/ <- if no id_rsa/id_rds.pub then no ssh key was generated
+or 
+2. eval "$(ssh-agent -s)" -> return something like this Agent pid 1377
 
 #create SSH key(if set passphrase, dont forget it!!! it can be set without passphrase also)
 ssh-keygen -b 4096 -> will throw a question: Enter file in which to save the key (/home/cristi/.ssh/id_rsa): -> will throw a question: Enter passphrase (empty for no passphrase):
