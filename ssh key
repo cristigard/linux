@@ -4,7 +4,7 @@ or
 2. eval "$(ssh-agent -s)" -> return something like this Agent pid 1377
 
 #create SSH key(if set passphrase, dont forget it!!! it can be set without passphrase also)
-ssh-keygen -b 4096 -> will throw a question: Enter file in which to save the key (/home/cristi/.ssh/id_rsa): -> will throw a question: Enter passphrase (empty for no passphrase):
+ssh-keygen -t rsa -b 4096 -C user@emaail.com -> will throw a question: Enter file in which to save the key (/home/cristi/.ssh/id_rsa): -> will throw a question: Enter passphrase (empty for no passphrase):
 
 #connect to remote server trought ssh key
 1.check the server accept ssh connections
