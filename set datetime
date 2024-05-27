@@ -1,0 +1,8 @@
+#get timezone name from list
+timedatectl list-timezones | grep Bucharest
+
+#will return
+Europe/Bucharest
+
+#set timezone 
+sudo timedatectl set-timezone Europe/Bucharest
