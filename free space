@@ -1,0 +1,2 @@
+#dirs bigger than 1GB
+sudo du -h --threshold=1G --max-depth=1 /
