@@ -1,2 +1,5 @@
 #dirs bigger than 1GB
 sudo du -h --threshold=1G --max-depth=1 /
+
+#files bigger than 1g
+find . -type f -size +1G
