@@ -1,5 +1,5 @@
 #dirs bigger than 1GB
-sudo du -h --threshold=1G --max-depth=1 /
+sudo du -h --max-depth=1 / | grep '[0-9\.]\+G'
 
 #files bigger than 1g
 find . -type f -size +1G
